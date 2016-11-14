@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var blueUISlider: UISlider!
     
+    @IBOutlet weak var colorSquare: UIView!
     
     //MARK: Actions
     
@@ -27,13 +28,16 @@ class ViewController: UIViewController {
         let green = CGFloat(greenUISlider.value)
         let blue = CGFloat(blueUISlider.value)
         
-        view.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 1)
+        colorSquare.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 1)
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
- 
+        
+        colorSquare.layer.borderColor = UIColor.black.cgColor
+        colorSquare.layer.borderWidth = 1
+        
         //update background before visible to user
         updateBackgroundColor()
     }
