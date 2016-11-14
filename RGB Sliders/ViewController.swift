@@ -10,9 +10,32 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    //MARK: Properties
+    
+    @IBOutlet weak var redUISlider: UISlider!
+    
+    @IBOutlet weak var greenUISlider: UISlider!
+    
+    @IBOutlet weak var blueUISlider: UISlider!
+    
+    
+    //MARK: Actions
+    
+    
+    @IBAction func updateBackgroundColor() {
+        let red = CGFloat(redUISlider.value)
+        let green = CGFloat(greenUISlider.value)
+        let blue = CGFloat(blueUISlider.value)
+        
+        view.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 1)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+ 
+        //update background before visible to user
+        updateBackgroundColor()
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,4 +46,3 @@ class ViewController: UIViewController {
 
 }
 
-//sample comment
