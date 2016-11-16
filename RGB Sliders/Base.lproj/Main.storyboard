@@ -55,7 +55,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Open"/>
                                 <connections>
-                                    <segue destination="Rxn-RV-2ec" kind="show" id="IQn-Te-TsH"/>
+                                    <segue destination="Rxn-RV-2ec" kind="show" identifier="openColor" id="IQn-Te-TsH"/>
                                 </connections>
                             </button>
                         </subviews>

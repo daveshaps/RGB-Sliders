@@ -31,6 +31,16 @@ class ViewController: UIViewController {
         colorSquare.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 1)
     }
     
+    //MARK: Segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "openColor" {
+            let newViewController = segue.destination
+            newViewController.view.backgroundColor = colorSquare.backgroundColor
+        }
+    }
+    //So you name the segue (which is linked to a specific button) and set data in the new ViewController based some data in the old ViewController.
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
