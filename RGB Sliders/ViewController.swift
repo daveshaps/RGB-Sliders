@@ -29,6 +29,15 @@ class ViewController: UIViewController {
         let blue = CGFloat(blueUISlider.value)
         
         colorSquare.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 1)
+        
+        //setting user defaults 
+        
+        let defaults = UserDefaults.standard
+        defaults.set(redUISlider.value, forKey: "red")
+        defaults.set(greenUISlider.value, forKey: "green")
+        defaults.set(blueUISlider.value, forKey: "blue")
+        defaults.synchronize() //stores the data immediately
+        
     }
     
     //MARK: Segue
@@ -41,12 +50,19 @@ class ViewController: UIViewController {
     }
     //So you name the segue (which is linked to a specific button) and set data in the new ViewController based some data in the old ViewController.
     
+    //MARK: Other
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         colorSquare.layer.borderColor = UIColor.black.cgColor
         colorSquare.layer.borderWidth = 1
+        
+        //set slider values in view to stored user defaults
+        let defaults = UserDefaults.standard
+        redUISlider.value = defaults.float(forKey: "red")
+        greenUISlider.value = defaults.float(forKey: "green")
+        blueUISlider.value = defaults.float(forKey: "blue")
         
         //update background before visible to user
         updateBackgroundColor()
